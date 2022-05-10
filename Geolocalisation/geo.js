@@ -40,27 +40,79 @@
 //   );
 
 function gps(position){
-    document.getElementById("latit").textContent = position.coords.latitude;
-    document.getElementById("long").textContent = position.coords.longitude;
+    let plat = document.querySelector(".latit");
+    let plon = document.querySelector(".long");
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    plat.textContent= "la latitude est "+lat;
+    plon.textContent= "la longitude est "+long;
 }
+
+function showError(error){
+    console.log(error);
+}
+
+// function getUserLocation(){
+
+//     return new Promise((resolve, reject)=>{
+//         navigator.geolocation.getCurrentPosition((position)=>{
+            
+//             resolve(position);
+//         }, ()=>{
+//             reject();
+//         });
+        
+//     });
+
+
+
+// }
+
+// exo qui marxche
+
+    // function getUserLocation(){
+
+    //     return new Promise((resolve, reject)=>{
+    //         navigator.geolocation.getCurrentPosition( resolve, ()=>{
+    //             reject();
+    //         });
+            
+    //     });
+    
+    
+    
+    // }
+
+    // getUserLocation()
+    // .then(gps)
+    // .catch()
+
+// CORRECTion
 
 function getUserLocation(){
-
     return new Promise((resolve, reject)=>{
-        navigator.geolocation.getCurrentPosition();
-        if(!navigator.geolocation){
-            reject("DONNEES GPS INDISPONIBLE");
+        if (!navigator.geolocation){
+            return reject("API geolocation non dispo");
         }
-        else{
+        navigator.geolocation.getCurrentPosition(position=>{
             resolve(position);
-        }
-
+        }, error=>{
+            reject(error.message);
+        });
     });
-
-
-
 }
 
-getUserLocation()
+// encore plus simplifié
+
+function getUserLocation1(){
+    return new Promise((resolve, reject)=>{
+        if (!navigator.geolocation){
+            return reject({message:"API geolocation non dispo"});
+        }
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+}
+
+getUserLocation1()
     .then(gps)
-    .catch()
+    .catch(showError)

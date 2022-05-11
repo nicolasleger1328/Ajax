@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generateur de Lorem</title>
+    <script src="js/index.js" defer></script>
+</head>
+<body>
+    <h1>Generateur de Bacon Ipsum</h1>
+    <label for="nbrepara">Choisir un nbre de paragraphe : </label>
+    <select name="nbrepara" id="nbrepara">
+        <!-- <option value="">--Choisis un nbre de para--</option> -->
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+    </select>
+    <br><br>
+    <label for="style">Choisir un style : </label>
+    <select name="style" id="style">
+        <!-- <option value="">--Choisis un style--</option> -->
+        <option value="all-meat">Viande</option>
+        <option value="meat-and-filler">Viande + Lorem</option>
+    </select>
+    <br><br>
+    <fieldset>
+        <legend>Commence par "Bacon ipsum dolor sit amet":</legend>
+    
+        <div>
+          <input type="radio" id="oui" name="debut" value="1"
+                 checked>
+          <label for="oui">oui</label>
+        </div>
+    
+        <div>
+          <input type="radio" id="non" name="debut" value="0">
+          <label for="non">non</label>
+        </div>
+    
+        
+    </fieldset>
+    <p><button>GENERER</button></p>
+    <p class="container"></p>
+</body>
+</html>

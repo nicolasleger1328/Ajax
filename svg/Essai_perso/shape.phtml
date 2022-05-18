@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape's Gen</title>
+    <script src="shape.js" defer></script>
+    
+    
+        
+    
+</head>
+<body>
+    <header>
+        <h1>Shape's Generator</h1>
+    </header>
+    <main>
+        <section>
+
+            <!-- Liste déroulante: choix de la forme a dessiner -->
+            <label for="forme">Choisir une forme: </label>
+            <select name="forme" id="forme">
+            <option value="choix">--Choisis une forme à dessiner--</option>
+            <option value="rectangle" >Rectangle</option>
+            <option value="ellipse">Ellipse</option>
+            <option value="circle">Cercle</option>
+            <option value="square">Carré</option>
+            <!-- <option value="triangle">Triangle</option> -->
+            </select>
+
+
+        </section>
+        <section id="ajax_menu">
+        
+        </section>
+        <svg height="1000" width="1600"><?= genRect(0,0,0,0,'',1); ?></svg>
+    </main>
+</body>
+</html>
